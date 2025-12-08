@@ -1,0 +1,162 @@
+{
+  "info": {
+    "_postman_id": "satoshivault-blockchain-api",
+    "name": "SatoshiVault Blockchain API",
+    "description": "Collection for testing SatoshiVault blockchain integration module",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/health",
+              "host": ["{{base_url}}"],
+              "path": ["api", "health"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Balance Operations",
+      "item": [
+        {
+          "name": "Get Balance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/balance/{{test_address}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "balance", "{{test_address}}"]
+            },
+            "description": "Fetch the balance of a Bitcoin address"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "UTXO Operations",
+      "item": [
+        {
+          "name": "Get UTXOs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/utxos/{{test_address}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "utxos", "{{test_address}}"]
+            },
+            "description": "Fetch all UTXOs for an address"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transaction Operations",
+      "item": [
+        {
+          "name": "Get Transaction History",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/transactions/{{test_address}}?limit=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "transactions", "{{test_address}}"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": false
+                }
+              ]
+            },
+            "description": "Fetch transaction history for an address"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Fee Operations",
+      "item": [
+        {
+          "name": "Estimate Fee",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputs\": 1,\n  \"outputs\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/fee-estimate",
+              "host": ["{{base_url}}"],
+              "path": ["api", "fee-estimate"]
+            },
+            "description": "Estimate transaction fee based on inputs and outputs"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Send Bitcoin",
+      "item": [
+        {
+          "name": "Send Transaction",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fromAddress\": \"mkHS9ne38qMvCfZyLaBeoMoRM1Z5e93aE\",\n  \"toAddress\": \"mipcBbFg9gMiCh81Kj8tqqdgoZub1ZJRfn\",\n  \"amount\": 10000,\n  \"privateKey\": \"YOUR_WIF_PRIVATE_KEY_HERE\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/send",
+              "host": ["{{base_url}}"],
+              "path": ["api", "send"]
+            },
+            "description": "Send Bitcoin from one address to another"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "test_address",
+      "value": "mkHS9ne38qMvCfZyLaBeoMoRM1Z5e93aE",
+      "type": "string"
+    }
+  ]
+}

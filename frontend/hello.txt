@@ -1,3 +1,0 @@
-here /frontend will be the frontend
-
-then we will connect backend with frontend by rest API

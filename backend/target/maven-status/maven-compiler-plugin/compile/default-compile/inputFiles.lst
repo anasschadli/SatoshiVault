@@ -1,0 +1,13 @@
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\api\BlockchainAPI.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\service\FeeCalculator.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\api\BlockchainComClient.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\util\HttpClientWrapper.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\model\Transaction.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\model\UTXO.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\DemoApplication.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\model\TxInput.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\service\TransactionService.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\api\BlockCypherClient.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\model\TxOutput.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\controller\BlockchainController.java
+C:\Users\zakar\Desktop\SatoshiVault\backend\src\main\java\com\example\demo\blockchain\service\KeyService.java
