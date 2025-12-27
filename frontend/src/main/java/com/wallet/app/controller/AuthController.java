@@ -1,5 +1,6 @@
 package com.wallet.app.controller;
 
+import com.wallet.app.util.ThemeManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,6 +36,10 @@ public class AuthController {
             
             Stage stage = (Stage) recoveryPhraseField.getScene().getWindow();
             Scene scene = new Scene(root, 900, 700);
+            
+            // Apply theme based on user preference
+            ThemeManager.applyTheme(scene);
+            
             stage.setScene(scene);
             stage.setTitle("Bitcoin Wallet");
         } catch (IOException e) {

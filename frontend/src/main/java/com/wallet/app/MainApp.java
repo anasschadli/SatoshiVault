@@ -1,5 +1,6 @@
 package com.wallet.app;
 
+import com.wallet.app.util.ThemeManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,6 +16,10 @@ public class MainApp extends Application {
         Parent root = loader.load();
         
         Scene scene = new Scene(root, 600, 400);
+        
+        // Apply theme based on user preference
+        ThemeManager.applyTheme(scene);
+        
         primaryStage.setTitle("Bitcoin Wallet - Login");
         primaryStage.setScene(scene);
         primaryStage.show();

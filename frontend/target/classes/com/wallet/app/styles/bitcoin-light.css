@@ -1,0 +1,426 @@
+/* Bitcoin Light Theme - Default Light Colors */
+/* Color Palette:
+   - Background: #fafafa (off-white)
+   - Secondary Background: #f5f5f5 (light gray)
+   - Surface: #ffffff (white)
+   - Accent Blue: #0078d4 (Microsoft blue)
+   - Text Primary: #1a1a1a (dark)
+   - Text Secondary: #666666
+   - Border: #d1d1d1
+*/
+
+/* Root and Base Styling */
+.root {
+    -fx-base: #fafafa;
+    -fx-background: #fafafa;
+    -fx-control-inner-background: #ffffff;
+    -fx-accent: #0078d4;
+    -fx-focus-color: #0078d4;
+    -fx-faint-focus-color: rgba(0, 120, 212, 0.2);
+}
+
+/* General Background */
+.vbox, .hbox, .border-pane {
+    -fx-background-color: #fafafa;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-smoothing-type: gray;
+}
+
+.label:disabled {
+    -fx-text-fill: #999999;
+    -fx-opacity: 0.6;
+}
+
+/* Text Fields */
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 12;
+    -fx-prompt-text-fill: #999999;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 4, 0, 0, 1);
+}
+
+.text-field:focused {
+    -fx-border-color: #0078d4;
+    -fx-background-color: #ffffff;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 212, 0.2), 8, 0, 0, 0);
+}
+
+.text-field:hover {
+    -fx-border-color: #a8a8a8;
+}
+
+/* Text Areas */
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 4, 0, 0, 1);
+}
+
+.text-area:focused {
+    -fx-border-color: #0078d4;
+    -fx-background-color: #ffffff;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 212, 0.2), 8, 0, 0, 0);
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #ffffff 0%, #f5f5f5 100%);
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
+    -fx-font-size: 13px;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #f8f8f8 0%, #e8e8e8 100%);
+    -fx-border-color: #0078d4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 6, 0, 0, 2);
+}
+
+.button:pressed {
+    -fx-background-color: #e0e0e0;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.15), 4, 0, 0, 1);
+    -fx-translate-y: 1px;
+}
+
+.button:focused {
+    -fx-border-color: #0078d4;
+    -fx-border-width: 2px;
+}
+
+/* Active Button (for navigation and filters) */
+.button.active {
+    -fx-background-color: linear-gradient(to bottom, #0078d4 0%, #005a9e 100%);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 212, 0.4), 8, 0, 0, 2);
+}
+
+.button.active:hover {
+    -fx-background-color: linear-gradient(to bottom, #1084e0 0%, #0078d4 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 212, 0.5), 10, 0, 0, 3);
+}
+
+/* Default/Primary Button */
+.button:default {
+    -fx-background-color: linear-gradient(to bottom, #0078d4 0%, #005a9e 100%);
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 212, 0.4), 8, 0, 0, 2);
+}
+
+.button:default:hover {
+    -fx-background-color: linear-gradient(to bottom, #1084e0 0%, #0078d4 100%);
+    -fx-effect: dropshadow(gaussian, rgba(0, 120, 212, 0.5), 10, 0, 0, 3);
+}
+
+.button:default:pressed {
+    -fx-background-color: #004578;
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.3), 4, 0, 0, 1);
+    -fx-translate-y: 1px;
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1 0 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 8, 0, 0, -2);
+}
+
+/* Address Display */
+.address-label {
+    -fx-background-color: #f8f8f8;
+    -fx-padding: 12 16;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.06), 4, 0, 0, 1);
+    -fx-font-family: "Consolas", "Courier New", monospace;
+}
+
+/* ListView */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 6, 0, 0, 2);
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: transparent;
+    -fx-padding: 10 14;
+}
+
+.list-view .list-cell:filled:hover {
+    -fx-background-color: #f8f8f8;
+}
+
+.list-view .list-cell:filled:selected {
+    -fx-background-color: linear-gradient(to right, rgba(0, 120, 212, 0.15) 0%, rgba(0, 120, 212, 0.1) 100%);
+    -fx-border-color: #0078d4;
+    -fx-border-width: 0 0 0 3;
+    -fx-text-fill: #1a1a1a;
+}
+
+.list-view .list-cell:filled:selected:hover {
+    -fx-background-color: linear-gradient(to right, rgba(0, 120, 212, 0.2) 0%, rgba(0, 120, 212, 0.15) 100%);
+}
+
+.list-view .list-cell:empty {
+    -fx-background-color: transparent;
+}
+
+/* Custom Transaction Cell */
+.transaction-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 14 16;
+    -fx-border-color: #efefef;
+    -fx-border-width: 0 0 1 0;
+}
+
+.transaction-cell:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.02);
+    -fx-border-radius: 6px;
+}
+
+.transaction-cell .status-icon {
+    -fx-text-fill: #0078d4;
+    -fx-font-size: 16px;
+}
+
+.transaction-cell .amount {
+    -fx-text-fill: #1e1e1e;
+    -fx-font-weight: bold;
+}
+
+.transaction-cell .amount.received {
+    -fx-text-fill: #107c10;
+}
+
+.transaction-cell .amount.sent {
+    -fx-text-fill: #d13438;
+}
+
+.transaction-cell .amount.pending {
+    -fx-text-fill: #ffa500;
+}
+
+.transaction-cell .date {
+    -fx-text-fill: #5e5e5e;
+    -fx-font-size: 11px;
+}
+
+.transaction-cell .separator {
+    -fx-text-fill: #5e5e5e;
+    -fx-font-weight: bold;
+    -fx-padding: 8 0;
+}
+
+/* DatePicker */
+.date-picker {
+    -fx-background-color: #ffffff;
+}
+
+.date-picker-popup {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d1d1;
+}
+
+.date-picker .text-field {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1e1e1e;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Charts */
+.chart {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d1d1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 6, 0, 0, 2);
+}
+
+.chart-content {
+    -fx-padding: 16px;
+}
+
+.chart-title {
+    -fx-text-fill: #1e1e1e;
+}
+
+.chart-legend {
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #1e1e1e;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #1e1e1e;
+}
+
+/* Chart Axes */
+.axis {
+    -fx-tick-label-fill: #5e5e5e;
+    -fx-font-size: 11px;
+}
+
+.axis-label {
+    -fx-text-fill: #1e1e1e;
+}
+
+.axis-tick-mark {
+    -fx-stroke: #d1d1d1;
+}
+
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: #f0f0f0;
+}
+
+.chart-vertical-zero-line,
+.chart-horizontal-zero-line {
+    -fx-stroke: #d1d1d1;
+}
+
+/* Chart Line with Blue Gradient */
+.chart-series-line {
+    -fx-stroke: linear-gradient(to right, #0078d4 0%, #005a9e 50%, #004578 100%);
+    -fx-stroke-width: 3px;
+}
+
+.chart-line-symbol {
+    -fx-background-color: #0078d4, #ffffff;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.chart-line-symbol:hover {
+    -fx-background-color: #005a9e, #ffffff;
+    -fx-background-insets: 0, 2;
+}
+
+/* Area under chart line */
+.chart-series-area-fill {
+    -fx-fill: linear-gradient(to bottom, rgba(0, 120, 212, 0.2) 0%, rgba(0, 120, 212, 0.05) 100%);
+}
+
+.default-color0.chart-series-area-line { -fx-stroke: #0078d4; }
+.default-color0.chart-series-area-fill { -fx-fill: linear-gradient(to bottom, rgba(0, 120, 212, 0.2) 0%, rgba(0, 120, 212, 0.05) 100%); }
+
+/* ScrollBar */
+.scroll-bar {
+    -fx-background-color: #f5f5f5;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #c8c8c8;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #a8a8a8;
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #0078d4;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #f5f5f5;
+}
+
+/* QR Code Placeholder */
+.qr-placeholder {
+    -fx-fill: #f5f5f5;
+    -fx-stroke: #0078d4;
+    -fx-stroke-width: 2.0;
+}
+
+/* Error Labels */
+.error-label {
+    -fx-text-fill: #d13438;
+}
+
+/* Dialogs */
+.dialog-pane {
+    -fx-background-color: #ffffff;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #1e1e1e;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #1e1e1e;
+}
+
+.dialog-pane .button:default {
+    -fx-background-color: #0078d4;
+    -fx-text-fill: #ffffff;
+}
+
+/* Tooltips */
+.tooltip {
+    -fx-background-color: #f5f5f5;
+    -fx-text-fill: #1e1e1e;
+    -fx-border-color: #0078d4;
+    -fx-border-width: 1px;
+}
+
+/* CheckBox */
+.check-box {
+    -fx-text-fill: #1e1e1e;
+}
+
+.check-box .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d1d1d1;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #0078d4;
+}
+
+.check-box:hover .box {
+    -fx-border-color: #0078d4;
+}

@@ -8,14 +8,18 @@ import com.wallet.app.service.TransactionService;
 import com.wallet.app.service.WalletService;
 import com.wallet.app.util.CurrencyFormatter;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -43,7 +47,7 @@ public class HomeController {
     private NumberAxis yAxis;
     
     @FXML
-    private ListView<String> recentTransactionsList;
+    private ListView<TransactionModel> recentTransactionsList;
     
     @FXML
     private Button filter1H;
@@ -73,9 +77,64 @@ public class HomeController {
         walletService = new MockWalletService();
         transactionService = new MockTransactionService();
         
+        // Setup custom cell factory for transactions
+        setupRecentTransactionsCellFactory();
+        
         loadWalletData();
         loadRecentTransactions();
         updateChart("1D"); // Default to 1 Day
+    }
+    
+    private void setupRecentTransactionsCellFactory() {
+        recentTransactionsList.setCellFactory(listView -> new ListCell<TransactionModel>() {
+            @Override
+            protected void updateItem(TransactionModel tx, boolean empty) {
+                super.updateItem(tx, empty);
+                
+                if (empty || tx == null) {
+                    setText(null);
+                    setGraphic(null);
+                    getStyleClass().removeAll("transaction-cell");
+                } else {
+                    HBox container = new HBox(10);
+                    container.setAlignment(Pos.CENTER_LEFT);
+                    
+                    // Status icon
+                    Label statusIcon = new Label(getStatusIcon(tx.getStatus()));
+                    statusIcon.getStyleClass().add("status-icon");
+                    statusIcon.setMinWidth(20);
+                    
+                    // Status
+                    Label statusLabel = new Label(tx.getStatus().toString());
+                    statusLabel.setMinWidth(80);
+                    
+                    // Amount
+                    Label amountLabel = new Label(CurrencyFormatter.formatBTCAmount(tx.getAmount()));
+                    amountLabel.getStyleClass().addAll("amount", tx.getStatus().toString().toLowerCase());
+                    amountLabel.setMinWidth(120);
+                    
+                    // Date
+                    Label dateLabel = new Label(tx.getDate().format(DateTimeFormatter.ofPattern("MMM dd, HH:mm")));
+                    dateLabel.getStyleClass().add("date");
+                    HBox.setHgrow(dateLabel, Priority.ALWAYS);
+                    dateLabel.setMaxWidth(Double.MAX_VALUE);
+                    dateLabel.setAlignment(Pos.CENTER_RIGHT);
+                    
+                    container.getChildren().addAll(statusIcon, statusLabel, amountLabel, dateLabel);
+                    setGraphic(container);
+                    getStyleClass().add("transaction-cell");
+                }
+            }
+        });
+    }
+    
+    private String getStatusIcon(TransactionModel.Status status) {
+        switch (status) {
+            case RECEIVED: return "↓";
+            case SENT: return "↑";
+            case PENDING: return "⏳";
+            default: return "•";
+        }
     }
     
     private void loadWalletData() {
@@ -98,17 +157,10 @@ public class HomeController {
         List<TransactionModel> transactions = transactionService.getTransactions();
         recentTransactionsList.getItems().clear();
         
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd, HH:mm");
-        
         // Show only last 5 transactions
         int count = Math.min(5, transactions.size());
         for (int i = 0; i < count; i++) {
-            TransactionModel tx = transactions.get(i);
-            String status = tx.getStatus().toString();
-            String amount = CurrencyFormatter.formatBTCAmount(tx.getAmount());
-            String date = tx.getDate().format(formatter);
-            String item = String.format("%s | %s | %s", status, amount, date);
-            recentTransactionsList.getItems().add(item);
+            recentTransactionsList.getItems().add(transactions.get(i));
         }
     }
     
@@ -187,21 +239,20 @@ public class HomeController {
     }
     
     private void updateActiveFilter(String activeFilter) {
-        filter1H.setStyle("");
-        filter1D.setStyle("");
-        filter1W.setStyle("");
-        filter1M.setStyle("");
-        filter1Y.setStyle("");
-        filterAll.setStyle("");
+        filter1H.getStyleClass().remove("active");
+        filter1D.getStyleClass().remove("active");
+        filter1W.getStyleClass().remove("active");
+        filter1M.getStyleClass().remove("active");
+        filter1Y.getStyleClass().remove("active");
+        filterAll.getStyleClass().remove("active");
         
-        String activeStyle = "-fx-background-color: #0078d4; -fx-text-fill: white;";
         switch (activeFilter) {
-            case "1H": filter1H.setStyle(activeStyle); break;
-            case "1D": filter1D.setStyle(activeStyle); break;
-            case "1W": filter1W.setStyle(activeStyle); break;
-            case "1M": filter1M.setStyle(activeStyle); break;
-            case "1Y": filter1Y.setStyle(activeStyle); break;
-            case "ALL": filterAll.setStyle(activeStyle); break;
+            case "1H": filter1H.getStyleClass().add("active"); break;
+            case "1D": filter1D.getStyleClass().add("active"); break;
+            case "1W": filter1W.getStyleClass().add("active"); break;
+            case "1M": filter1M.getStyleClass().add("active"); break;
+            case "1Y": filter1Y.getStyleClass().add("active"); break;
+            case "ALL": filterAll.getStyleClass().add("active"); break;
         }
     }
     

@@ -89,13 +89,13 @@ public class NavigationController {
     
     private void updateActiveButton(Button activeButton) {
         // Reset all buttons
-        homeButton.setStyle("");
-        sendButton.setStyle("");
-        receiveButton.setStyle("");
-        historyButton.setStyle("");
-        settingsButton.setStyle("");
+        homeButton.getStyleClass().remove("active");
+        sendButton.getStyleClass().remove("active");
+        receiveButton.getStyleClass().remove("active");
+        historyButton.getStyleClass().remove("active");
+        settingsButton.getStyleClass().remove("active");
         
         // Highlight active button
-        activeButton.setStyle("-fx-background-color: #0078d4; -fx-text-fill: white;");
+        activeButton.getStyleClass().add("active");
     }
 }

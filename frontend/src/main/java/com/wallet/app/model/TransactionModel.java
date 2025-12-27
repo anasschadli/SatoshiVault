@@ -11,6 +11,7 @@ public class TransactionModel {
     private LocalDateTime date;
     private double amount;
     private Status status;
+    private String address;
 
     public TransactionModel() {
     }
@@ -20,6 +21,14 @@ public class TransactionModel {
         this.date = date;
         this.amount = amount;
         this.status = status;
+    }
+    
+    public TransactionModel(String txId, LocalDateTime date, double amount, Status status, String address) {
+        this.txId = txId;
+        this.date = date;
+        this.amount = amount;
+        this.status = status;
+        this.address = address;
     }
 
     public String getTxId() {
@@ -52,5 +61,13 @@ public class TransactionModel {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+    
+    public String getAddress() {
+        return address;
+    }
+    
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
